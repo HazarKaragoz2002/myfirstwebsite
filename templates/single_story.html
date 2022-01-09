@@ -1,0 +1,17 @@
+{% extends "layout2.html" %}
+{% block body %}
+{% if story %}
+<h4>{{story.story_name}}</h4>
+<hr>
+Famous : {{story.famous_name}}
+<hr>
+Show : {{story.programme_name}}
+<hr>
+Date : {{story.date}}
+<hr>URL : <a href="{{story.url}}" target="_blank" rel="noopener noreferrer">{{story.url}}</a><hr>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/{{story.url[32:]}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<hr>
+{% else %}
+<div class = "alert alert-warning">There is no such story in this ID!</div>
+{% endif %}
+{% endblock body %}

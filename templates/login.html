@@ -1,0 +1,18 @@
+{% extends "layout2.html" %}
+{% block body %}
+{% if session["username"] %}
+<div class="alert alert-danger">Please log out first!</div>
+{% else %}
+<h3>Login</h3>
+<hr>
+{% from "includes/formhelpers.html" import render_field %}
+<form method="post">
+    {{render_field(form.username)}}
+    {{render_field(form.password)}}
+    <small>You do not have an account?</small>
+    <a href="/register"><small>Register</small></a>
+    <br><br>
+    <button type="submit" class="btn btn-dark">Submit</button>  
+</form>
+{% endif %}
+{% endblock body %}

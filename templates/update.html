@@ -1,0 +1,13 @@
+{% extends "layout2.html" %}
+{% block body %}
+<h3>Update Story</h3>
+<hr>
+{% from "includes/formhelpers.html" import render_field %}
+<form method="post">
+    {{render_field(form.story_name, class = "form-control")}}
+    {{render_field(form.famous_name, class = "form-control")}}
+    {{render_field(form.programme_name, class = "form-control")}}
+    {{render_field(form.url, class = "form-control")}}
+    <button type="submit" class="btn btn-primary">Update</button>  
+</form>
+{% endblock body %}

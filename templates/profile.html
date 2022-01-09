@@ -1,0 +1,38 @@
+{% extends "layout2.html" %}
+{% block body %}
+<h3>Profile</h3>
+<small>Welcome {{session["username"]}}</small>
+<hr>
+<a href= "/addstory" class = "btn btn-info">Add Story</a>
+<br> <br>
+{% if stories %}
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Famous</th>
+      <th scope="col">Show</th>
+      <th scope="col">Date</th> 
+      <th scope="col"></th>
+      <th scope="col"></th> 
+    </tr>
+  </thead>
+  <tbody>
+    {% for story in stories %}
+        <tr>
+           <th scope = "row">{{story.ID}}</th>
+           <td><a href = "/story/{{story.ID}}">{{story.story_name}}</a></td>
+           <td>{{story.famous_name}}</td>
+           <td>{{story.programme_name}}</td>
+           <td>{{story.date}}</td>
+           <td><a href = "/update/{{story.ID}}" class = "btn btn-outline-primary">Update</a></td>
+           <td><a href = "/delete/{{story.ID}}" class = "btn btn-outline-danger">Delete</a></td>
+        </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<div class = "alert-alert danger">You have not inserted any story yet!</div>
+{% endif %}
+{% endblock body %}     
